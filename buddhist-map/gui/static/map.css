@@ -1,0 +1,49 @@
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #121212; /* темний фон сторінки */
+    color: #040202;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 100%; /* замість 100vh - краще 100% для повного заповнення батьківського елемента */
+    width: 100%;
+    filter: brightness(1.5) contrast(1.1);
+    z-index: 1; /* щоб карта була позаду меню */
+}
+
+.menu {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #707070;
+  background: #111;
+  padding: 14px 30px;
+  border-radius: 10px;
+  box-shadow:0 0 25px rgba(255, 204, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  gap: 30px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.menu a {
+  color: #ececec;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu a:hover {
+  color: rgba(255, 204, 0, 0.5);;
+  text-shadow: 0 0 8px #ff4444;
+  text-decoration: underline;
+}

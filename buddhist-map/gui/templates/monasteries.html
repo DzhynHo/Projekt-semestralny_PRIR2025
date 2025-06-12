@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='monastery.css') }}">
+    <title>{{ monastery.name }}</title>
+</head>
+<body>
+    <h1>{{ monastery.name }}</h1>
+    {% if monastery.image %}
+      <img src="{{ url_for('static', filename='img/' + monastery.image) }}" alt="{{ monastery.name }}" />
+    {% endif %}
+    <p><strong>Lokalizacja:</strong> {{ monastery.location }}</p>
+    <p>{{ monastery.description }}</p>
+    {% if monastery.website %}
+      <p><a href="{{ monastery.website }}" target="_blank" rel="noopener noreferrer">Oficjalna strona</a></p>
+    {% endif %}
+    <a href="/" class="back-link">&larr; Powrót do mapy</a>
+</body>
+</html>
