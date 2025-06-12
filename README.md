@@ -49,7 +49,8 @@ Struktura danych umożliwia łatwy dostęp i filtrowanie informacji w aplikacji 
 Aplikacja webowa oferuje intuicyjny interfejs, w którym użytkownik może przeglądać buddyjskie świątynie na mapie z oznaczonymi markerami. Po kliknięciu na marker pojawiają się szczegółowe informacje o klasztorze: nazwa, opis oraz link do oficjalnej strony. Dodatkowo dostępna jest lista wszystkich świątyń, pozwalająca na szybkie wyszukiwanie i przejście do szczegółowego widoku konkretnego klasztoru.
 
 ![Widok mapy](img/screen1.png)
-
+![Widok listy](img/screen2.png)
+![Widok opisu](img/screen3.png)
 ---
 
 ## 6. Rozproszenie i wdrożenie
