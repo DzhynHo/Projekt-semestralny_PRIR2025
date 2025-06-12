@@ -1,49 +1,73 @@
-# Projekt-semestralny_PRIR2025
-
 # Buddhist Monasteries Scraper & Web App
 
-## Opis projektu
+## 1. Wstęp
 
-Aplikacja do pobierania, przetwarzania oraz wizualizacji danych o buddyjskich klasztorach z różnych stron internetowych. Projekt pokazuje wykorzystanie wielowątkowości i asynchroniczności w Pythonie (multiprocessing, asyncio), parsowanie danych za pomocą BeautifulSoup, przechowywanie w MongoDB oraz prezentację danych przez interfejs webowy oparty na Flask. Całość działa w rozproszonym środowisku Docker z trzema kontenerami: scraper, backend Flask oraz MongoDB.
+### Cel projektu  
+Celem projektu jest stworzenie aplikacji, która pobiera, selekcjonuje i przechowuje dane o określonym profilu z różnych stron internetowych. Projekt demonstruje umiejętności wykorzystania wielowątkowości i wieloprocesowości z użyciem bibliotek `multiprocessing` i `asyncio`, implementacji parsowania danych za pomocą `BeautifulSoup` oraz zapisu danych w bazie MongoDB. Aplikacja posiada graficzny interfejs użytkownika zrealizowany w Pythonie (Flask), a całość jest rozproszona na trzy kontenery: interfejs, silnik oraz baza danych.
 
----
-
-## Funkcjonalności
-
-- Pobieranie danych o buddyjskich klasztorach (nazwa, lokalizacja, opis, zdjęcia, strona www)
-- Asynchroniczne pobieranie danych z użyciem `aiohttp` i parsowanie HTML `BeautifulSoup`
-- Wieloprocesowe przetwarzanie pobranych danych (multiprocessing)
-- Zapis i aktualizacja danych w bazie MongoDB
-- Graficzny interfejs webowy z mapą i listą klasztorów (Flask)
-- Możliwość przejścia do szczegółowych danych konkretnego klasztoru
-- Uruchomienie aplikacji w kontenerach Docker z wykorzystaniem docker-compose
+### Opis zakresu  
+Projekt obejmuje:  
+- pobieranie danych o buddyjskich klasztorach,  
+- przetwarzanie danych w trybie wieloprocesowym,  
+- zapis danych w MongoDB,  
+- udostępnienie danych przez interfejs webowy,  
+- rozproszenie aplikacji na moduły kontenerowe.
 
 ---
 
-## Technologie
+## 2. Analiza wymagań
 
-- Python 3.8+
-- aiohttp
-- BeautifulSoup4
-- multiprocessing
-- Flask
-- MongoDB
-- Docker & Docker Compose
+- Profil danych: nazwa klasztoru, lokalizacja, opis, zdjęcia, strona internetowa  
+- Obsługa wielu procesów i asynchroniczne przetwarzanie danych  
+- Przechowywanie danych w bazie MongoDB  
+- Graficzny interfejs użytkownika (webowy)
 
 ---
 
-## Struktura projektu
+## 3. Implementacja
 
-- `/scraper` - kod scraper’a do pobierania i zapisywania danych
-- `/gui` - backend Flask oraz szablony HTML dla interfejsu użytkownika
-- `docker-compose.yml` - konfiguracja uruchomienia trzech kontenerów (MongoDB, scraper, Flask)
+Dane pobierane są ze stron internetowych i parsowane przy użyciu biblioteki BeautifulSoup. Do asynchronicznego pobierania wykorzystano aiohttp, co pozwala na szybkie i efektywne pobieranie zawartości wielu stron. Przetwarzanie danych odbywa się w trybie wieloprocesowym przy pomocy modułu multiprocessing, co przyspiesza cały proces. Dane o klasztorach, takie jak nazwa, lokalizacja, opis oraz adres strony, są zapisywane w bazie MongoDB, z możliwością aktualizacji istniejących wpisów.
 
 ---
 
-## Instrukcja uruchomienia
+## 4. Baza danych
 
-1. Sklonuj repozytorium:
+Dokumenty w bazie MongoDB zawierają szczegóły klasztorów, takie jak:  
+- nazwa  
+- lokalizacja  
+- współrzędne GPS  
+- adres strony internetowej  
+- zdjęcia  
+- opis
 
-```bash
-git clone https://github.com/twoj-uzytkownik/buddhist-monasteries.git
-cd buddhist-monasteries
+Struktura danych umożliwia łatwy dostęp i filtrowanie informacji w aplikacji webowej.
+
+---
+
+## 5. Interfejs użytkownika
+
+Aplikacja webowa oferuje intuicyjny interfejs, w którym użytkownik może przeglądać buddyjskie świątynie na mapie z oznaczonymi markerami. Po kliknięciu na marker pojawiają się szczegółowe informacje o klasztorze: nazwa, opis oraz link do oficjalnej strony. Dodatkowo dostępna jest lista wszystkich świątyń, pozwalająca na szybkie wyszukiwanie i przejście do szczegółowego widoku konkretnego klasztoru.
+
+---
+
+## 6. Rozproszenie i wdrożenie
+
+Projekt został podzielony na trzy niezależne kontenery Docker:  
+- baza danych MongoDB (oficjalny obraz)  
+- scraper odpowiedzialny za pobieranie i przetwarzanie danych  
+- backend Flask udostępniający interfejs użytkownika  
+
+Całość uruchamiana jest przy pomocy docker-compose, co pozwala łatwo zarządzać kontenerami, skalować aplikację oraz przenosić ją między środowiskami i serwerami.  
+
+Polecenie do uruchomienia:  
+`docker-compose up --build`
+
+---
+
+## 7. Podsumowanie
+
+Projekt demonstruje nowoczesne podejście do pobierania i przetwarzania danych z internetu, wykorzystując asynchroniczność i wieloprocesowość, a także nowoczesne technologie bazodanowe i konteneryzację. Pozwala na wygodny dostęp do zgromadzonych informacji o buddyjskich klasztorach przez przejrzysty i funkcjonalny interfejs webowy.
+
+---
+
+
