@@ -13,6 +13,8 @@ Projekt obejmuje:
 - udostępnienie danych przez interfejs webowy,  
 - rozproszenie aplikacji na moduły kontenerowe.
 
+  ![Widok mapy](img/screen.png)
+
 ---
 
 ## 2. Analiza wymagań
